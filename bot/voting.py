@@ -3,8 +3,7 @@ from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
-
-vs = ['1', '2', '3', '4']
+from utilities import (global_vars,parser)
 
 LOGIN, STORE, VOTINGS, VOTING = range(4)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -14,7 +13,10 @@ logger = logging.getLogger(__name__)
 
 
 def voting(update, context):
-    reply_keyboard = vs
+    global_vars.voting_selected=update.message.text.split("-")[0]    
+    voting= parser.parseVoting()
+    reply_keyboard = parser.createKeyOption(voting['question']['options'])
+
     update.message.reply_text(update.message.text, reply_markup=ReplyKeyboardMarkup(
         reply_keyboard, one_time_keyboard=True))
 

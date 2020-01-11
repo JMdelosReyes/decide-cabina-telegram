@@ -3,7 +3,8 @@ from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
-from bot import (login, start, voting, votings,error,cancel,llamadas,globaltoken)
+from bot import (login, start, voting, votings,error,cancel,llamadas)
+from utilities import global_vars
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
