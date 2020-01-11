@@ -49,7 +49,7 @@ def store(update,context):
         reply_keyboard = [['Vote']]
         update.message.reply_text(update.message.text, reply_markup=ReplyKeyboardMarkup(
         reply_keyboard, one_time_keyboard=True))
-        next_state = VOTING
+        next_state = VOTINGS
     else:
         update.message.reply_text("Los credenciales son incorrectos, índicalos o escribe /cancel para salir")
         next_state = STORE
