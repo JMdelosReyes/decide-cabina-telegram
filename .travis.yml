@@ -1,0 +1,13 @@
+language: python
+python:
+- 3.7.4
+install:
+- pip install -r requirements.txt
+script:
+- cd tests
+- python -m unittest
+- cd ..
+deploy:
+  provider: heroku
+  api_key:
+    secure: SHO8S9HLJ/vn+coKZNmr7XfkMkjNQ6LUUkATakcl9kSGZe2YbcFKow0VDeeA+a3/NHkcK+NIYpoXT2I8cifnW0S7x7ktUNWArNAsx7Qs35nT+JH3Fs/p29cRy7XC6HMc/26m5L9yWuVrvH6I/jb8DNdX9U+YT1g7xDkC78HLzmy53fc50gYdYOLl2/ZeL5TVreIOf9BU+Hf1pFCo3aj/K7CEu/7qQ03b1Dr4Ki5q25C+bUhZofXO8kt0KVsFrhpasAOfuEDlLyiGcKiUYDB2Ez6c9eiMBvoetILFs7d6AR0BdbMPqAgiMwPat5u0j/AU+9UHb28blQ1qKf4DNzyEXevFSZpXIMsfQbBPtkRbao19hUj3Vu3/hyHCdgEes7Eojy2oCG0PTYcGJ5GeMLJXz37XTD8cSVclvroU/ksyZ382igJ924Jqca8OAn/Esbh4J5/+muIQ9x3ruIyMr83i2+dc1AfYIoU2Vz/VQ2bYbpjm7HbrXD5XgAdqZs4NF17rTXzHmjM+qLN6Jamr6bsVgsjginYHiDksKpymTq/Hw65aPHhnH9QwJL3ekNUr5nxMpy/vvGSpmYQcwyor2cI3KejDQPbfwNLuUDR49FowLObI71BKWd3roBj/CUdAwATMgrQ3qu/Jckwgf8SXiXAbGlK0zOXdS4U2PaeWJcZHvKY=
