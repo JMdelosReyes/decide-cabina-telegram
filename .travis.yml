@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.7.4'
+install:
+- pip install -r requirements.txt
+script:
+- cd tests
+- python -m unittest
+- cd ..
+deploy:
+  provider: heroku
+  api_key:
+    secure: NprcXs8+mdS1bl2u3f1BBKn7ifEgnEpXSBd+crFQB4V4bvuNHPSf9RhzVHbKZMEFxXxTzGst5R332TiYRhnF24OAz23ATMSYZGy35PRPzrhzDFO9LNQ1mN8oAmwDWRijWl+FRgu3cj5lVz7gcPI9gmUI/GWlkv7iJLU+7t8gAX8fZEAotqPawrV1f6MzpUQ7pt9z4EwNynLQJNldGe9pax+Mjge+1+T63knqYxDCuCfLiCVnvr++iGmRTbncFmGylgzV4NFmzjF2ZxXis4pDMVX/Zc/T/LYYQyUT937OSYwDnWcMK+LaDCyGqAe7wGblLjqxG0DzdI511t3w9VNlPVO57dmZ8tM/ZsfQXu9Pk2weAhVkA+L16L2f52dC91eK6ucirVe2Rp65zEpuvZDnCAmLIQGBDjcyPzQl57IWYCWszb1Tnb+wA0ow+OrX7OdiK/H/U+xtKDI4fl/9GpP8R+2R7FEqAF5eKqLBaIbZNKrjMUiVzfx1fZLEsaHufkGtaSjIVUrE3MB0ZndKIv07ZA2SkHZ/MQSYhZDJrdTJZeVbKfcELkupA7ihjdXWopj0fArvLu4OAcjHmUJy+rC4H7pRC+R1WBF2HRlB4rQCnDuMlT2FpPPNGbfKcNm3gCgZf5SLIKGueKq1speagrEVgW1Tph66uIzkVU1g6yHAisg=
+  app: decide-cabina-telegram
