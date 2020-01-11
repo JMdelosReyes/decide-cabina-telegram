@@ -1,4 +1,4 @@
 telegramBotENV
 .gitmessage.txt
 .vscode
-configurations/__pycache__/
+*/__pycache__
