@@ -16,6 +16,6 @@ def get_votings(id):
 
 
 def get_user(token):
-    data = {'token': token }
-    r = requests.post(config.API_DECIDE + "authentication/getuser/",data)
+    data = {'token': token}
+    r = requests.post(config.API_DECIDE + "authentication/getuser/", data)
     return r

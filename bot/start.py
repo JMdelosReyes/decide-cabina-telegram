@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 def start(update, context):
     reply_keyboard = [['Login']]
     update.message.reply_text(
-        'Hi! My name is Bot. Lets to vote',
+        'Hi! My name is Decide-Moltres-Bot. Lets vote',
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True))
 
     return LOGIN

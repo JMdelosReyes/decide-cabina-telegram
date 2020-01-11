@@ -9,7 +9,6 @@ from utilities import (global_vars)
 import json
 
 
-
 LOGIN, STORE, VOTINGS, VOTING = range(4)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -29,7 +28,5 @@ def votings(update, context):
     reply_keyboard = parser.createKeybVoting(votaciones)
     update.message.reply_text(update.message.text, reply_markup=ReplyKeyboardMarkup(
         reply_keyboard, one_time_keyboard=True))
-
- 
-
+    logger.info("Listing votings")
     return VOTING

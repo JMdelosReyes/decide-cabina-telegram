@@ -23,11 +23,7 @@ def login(update, context):
     return STORE
 
 
-
-
-
-
-def store(update,context):
+def store(update, context):
     credentials = {}
     next_state = ConversationHandler.END
     for index, i in enumerate(update.message.text.split("\n")):
@@ -35,20 +31,21 @@ def store(update,context):
             credentials["username"] = i
         else:
             credentials["password"] = i
-    
+
     response = llamadas.get_token(credentials)
     if response.status_code == 200:
-        global_vars.token=json.loads(response.text)["token"]
-        username=credentials['username']
+        global_vars.token = json.loads(response.text)["token"]
+        username = credentials['username']
         update.message.reply_text("¡Ya has iniciado sesión, " + username + "!")
         user = update.message.from_user
         logger.info("Usuario  %s logged", user.first_name)
         reply_keyboard = [['Vote']]
         update.message.reply_text(update.message.text, reply_markup=ReplyKeyboardMarkup(
-        reply_keyboard, one_time_keyboard=True))
+            reply_keyboard, one_time_keyboard=True))
         next_state = VOTINGS
     else:
-        update.message.reply_text("Los credenciales son incorrectos, índicalos o escribe /cancel para salir")
+        update.message.reply_text(
+            "Los credenciales son incorrectos, índicalos o escribe /cancel para salir")
         next_state = STORE
-        
+
     return next_state
