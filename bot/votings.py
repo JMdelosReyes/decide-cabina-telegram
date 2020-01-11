@@ -1,5 +1,6 @@
 import logging
 from configurations import config
+from utilities import parser
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
@@ -16,15 +17,14 @@ logger = logging.getLogger(__name__)
 
 
 def votings(update, context):
-    print('token ' + globaltoken.token)
     response = llamadas.get_user(globaltoken.token)
     usuario = json.loads(response.text)
 
     response2 = llamadas.get_votings(usuario["id"])
 
     vots = json.loads(response2.text)
-    print(vots)
-    reply_keyboard = ['a']
+    votaciones = parser.parseVotings(vots)
+    reply_keyboard = parser.createKeybVoting(votaciones)
     update.message.reply_text(update.message.text, reply_markup=ReplyKeyboardMarkup(
         reply_keyboard, one_time_keyboard=True))
 
