@@ -9,7 +9,7 @@ from utilities import (global_vars)
 import json
 
 
-LOGIN, STORE, VOTINGS, VOTING = range(4)
+LOGIN, STORE, VOTINGS, VOTING, SAVE_VOTE  = range(5)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 

@@ -5,7 +5,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
 from utilities import (global_vars, parser)
 
-LOGIN, STORE, VOTINGS, VOTING = range(4)
+LOGIN, STORE, VOTINGS, VOTING, SAVE_VOTE  = range(5)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
@@ -21,4 +21,4 @@ def voting(update, context):
         reply_keyboard, one_time_keyboard=True))
     logger.info("Listing voting options")
     
-    return ConversationHandler.END
+    return SAVE_VOTE

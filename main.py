@@ -3,14 +3,14 @@ from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
-from bot import (login, start, voting, votings,error,cancel,llamadas)
+from bot import (login, start, voting, votings,error,cancel,llamadas,save_vote)
 from utilities import global_vars
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
-LOGIN, STORE, VOTINGS, VOTING = range(4)
+LOGIN, STORE, VOTINGS, VOTING, SAVE_VOTE  = range(5)
 
 
 def main():
@@ -26,7 +26,9 @@ def main():
 
             VOTINGS: [MessageHandler(Filters.regex('^(Vote)$'), votings.votings)],
 
-            VOTING: [MessageHandler(Filters.text, voting.voting)]
+            VOTING: [MessageHandler(Filters.text, voting.voting)],
+
+            SAVE_VOTE: [MessageHandler(Filters.text,save_vote.save_vote)]
         },
 
         fallbacks=[CommandHandler('cancel', cancel.cancel)]
