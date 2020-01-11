@@ -3,7 +3,7 @@ from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
-from bot import (login, start, voting, votings,error,cancel,llamadas)
+from bot import (login, start, voting, votings,error,cancel,llamadas,globaltoken)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
@@ -15,7 +15,6 @@ LOGIN, STORE, VOTINGS, VOTING = range(4)
 def main():
     updater = Updater(config.BOT_TOKEN, use_context=True)
     dp = updater.dispatcher
-
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start.start)],
 

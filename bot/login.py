@@ -1,7 +1,6 @@
 import logging
 import json
-
-from bot import llamadas
+from bot import (llamadas,globaltoken)
 from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
@@ -36,12 +35,9 @@ def store(update,context):
         else:
             credentials["password"] = i
     
-    print(credentials)
     response = llamadas.get_token(credentials)
-    print(response.status_code)
-    print(response.text)
     if response.status_code == 200:
-        token=json.loads(response.text)["token"]
+        globaltoken.token=json.loads(response.text)["token"]
         username=credentials['username']
         update.message.reply_text("¡Ya has iniciado sesión, " + username + "!")
         user = update.message.from_user
