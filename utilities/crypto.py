@@ -1,4 +1,6 @@
 #Reference to code: https://github.com/RyanRiddle/elgamal=============
+import random
+import sys,os
 
 class PublicKey(object):
     def __init__(self, p=None, g=None, h=None, iNumBits=256):
@@ -26,18 +28,26 @@ def encode(sPlaintext, iNumBits):
         return z
 
 def encrypt(key, sPlaintext):
-        z = encode(sPlaintext, key.iNumBits)
-        cipher_pairs = []
-        for i in z:
-                y = random.randint( 0, key.p )
-                c = modexp( key.g, y, key.p )
-                d = (i*modexp( key.h, y, key.p)) % key.p
-                cipher_pairs.append( [c, d] )
 
-        encryptedStr = ""
-        for pair in cipher_pairs:
-                encryptedStr += str(pair[0]) + ' ' + str(pair[1]) + ' '
-    
-        return encryptedStr
+        try:
+                        
+                z = encode(sPlaintext, key.iNumBits)
+                cipher_pairs = []
+                for i in z:
+                        y = random.randint( 0, key.p )
+                        c = modexp( key.g, y, key.p )
+                        d = (i*modexp( key.h, y, key.p)) % key.p
+                        cipher_pairs.append( [c, d] )
+
+                encryptedStr = ""
+                for pair in cipher_pairs:
+                        encryptedStr += str(pair[0]) + ' ' + str(pair[1]) + ' '
+        
+                return encryptedStr   
+        except Exception as e :
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                print(exc_type, fname, exc_tb.tb_lineno)
+                
 
 #==========================================================================================

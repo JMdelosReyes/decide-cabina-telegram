@@ -18,6 +18,7 @@ def parseVoting():
         id_voting = v['id']
         if str(id_voting) == global_vars.voting_selected:
             voting = v
+            global_vars.pub_key=v['pub_key']
     return voting
 
 

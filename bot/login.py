@@ -1,6 +1,6 @@
 import logging
 import json
-from bot import (llamadas)
+from bot import llamadas
 from utilities import (global_vars)
 from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
