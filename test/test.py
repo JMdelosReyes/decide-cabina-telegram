@@ -2,7 +2,8 @@ import unittest
 import requests
 import json
 import sys
-sys.path.insert(0, '../configurations') 
+print(sys.path)
+sys.path.append('../configurations') 
 import config
 class TestMethods(unittest.TestCase):
 
@@ -10,7 +11,7 @@ class TestMethods(unittest.TestCase):
         headers = {"Content-type": "application/json",
         "Accept": "text/plain"}
 
-        credentials = {"username": "test", "password":"test12345"}
+        credentials = {"username": "administrador", "password":"administrador"}
         r = requests.post(config.API_DECIDE + "authentication/login/", credentials)
         self.assertEqual(r.status_code, 200)
 
@@ -37,11 +38,12 @@ class TestMethods(unittest.TestCase):
 
     def test_vote(self):
 
-        headers = {"Authorization": "Token 4d58e64a10afb15d16153cdd9c777123aa3b1c84"}
+        headers = {"Authorization": "Token 4fe72e06a35d625735db4ea97a2cdc469130e231"}
         vote = {
-                "voting": 2,
+                "vote": { "a": "3", "b": "2" },
+                "voting": 1,
                 "voter": 1,
-                "vote": { "a": "3", "b": "2" }
+                "token": '4fe72e06a35d625735db4ea97a2cdc469130e231'
             }
         r = requests.post(config.API_DECIDE + "store/", json=vote, headers = headers)
         self.assertEqual(r.status_code, 200)
