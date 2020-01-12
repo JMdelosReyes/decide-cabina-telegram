@@ -44,6 +44,7 @@ def main():
     dp.add_error_handler(error.error)
 
     if(config.WEBHOOK):
+        logger.info("WEBHOOK ACTIVADO")
         PORT = int(os.environ.get("PORT", config.PORT))
         updater.start_webhook(listen="0.0.0.0",
                               port=PORT,

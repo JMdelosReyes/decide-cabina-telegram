@@ -38,12 +38,12 @@ class TestMethods(unittest.TestCase):
 
     def test_vote(self):
 
-        headers = {"Authorization": "Token 4fe72e06a35d625735db4ea97a2cdc469130e231"}
+        headers = {"Authorization": "Token af6d8a0e398dda94bc6039141708af60f284a3c8"}
         vote = {
                 "vote": { "a": "3", "b": "2" },
                 "voting": 1,
                 "voter": 1,
-                "token": '4fe72e06a35d625735db4ea97a2cdc469130e231'
+                "token": 'af6d8a0e398dda94bc6039141708af60f284a3c8'
             }
         r = requests.post(config.API_DECIDE + "store/", json=vote, headers = headers)
         self.assertEqual(r.status_code, 200)
