@@ -3,8 +3,12 @@ from configurations import config
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
-from bot import (login, start, voting, votings,error,cancel,llamadas,save_vote)
+from bot import (login, start, voting, votings,error,cancel,llamadas,save_vote,cancel)
 from utilities import global_vars
+import os
+
+
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
@@ -39,8 +43,14 @@ def main():
     # log all errors
     dp.add_error_handler(error.error)
 
-    # Start the Bot
-    updater.start_polling()
+    if(config.WEBHOOK):
+        PORT = int(os.environ.get("PORT", config.PORT))
+        updater.start_webhook(listen="0.0.0.0",
+                              port=PORT,
+                              url_path=config.BOT_TOKEN)
+        updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(config.HEROKU_APP_NAME, config.BOT_TOKEN))
+    else:
+        updater.start_polling()
 
     updater.idle()
 
