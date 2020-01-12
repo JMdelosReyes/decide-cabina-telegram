@@ -1,0 +1,2 @@
+# decide-cabina-telegram
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7c97a1f5ec7840deb299690ff4c8ed69)](https://www.codacy.com/gh/decide-moltres/decide-cabina-telegram?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=decide-moltres/decide-cabina-telegram&amp;utm_campaign=Badge_Grade)
