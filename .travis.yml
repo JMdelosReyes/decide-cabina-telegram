@@ -8,10 +8,10 @@ install:
 script:
 - cd test
 - python -m unittest
-- coverage run -m unittest discover
+#- coverage run -m unittest discover
 - cd ..
-- coverage xml
-- python-codacy-coverage -r coverage.xml
+#- coverage xml
+#- python-codacy-coverage -r coverage.xml
 - flake8 .
 deploy:
   provider: heroku
