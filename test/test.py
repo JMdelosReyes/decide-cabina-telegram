@@ -41,7 +41,7 @@ class TestMethods(unittest.TestCase):
         headers = {"Authorization": "Token 	963edaa37004c7a0cdf5f8d464740e85cbb541d5"}
         vote = {
                 "vote": { "a": "3", "b": "2" },
-                "voting": 1,
+                "voting": 3,
                 "voter": 1,
                 "token": '	963edaa37004c7a0cdf5f8d464740e85cbb541d5'
             }
