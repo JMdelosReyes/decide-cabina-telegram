@@ -4,16 +4,11 @@ python:
 install:
 - pip install -r requirements.txt
 - pip install codacy-coverage
-- pip install flake8
 script:
 - cd test
 - python -m unittest
-#- coverage run -m unittest discover
 - cd ..
-#- coverage xml
-#- python-codacy-coverage -r coverage.xml
-#- flake8 .
 deploy:
   provider: heroku
   api_key:
-    secure: SHO8S9HLJ/vn+coKZNmr7XfkMkjNQ6LUUkATakcl9kSGZe2YbcFKow0VDeeA+a3/NHkcK+NIYpoXT2I8cifnW0S7x7ktUNWArNAsx7Qs35nT+JH3Fs/p29cRy7XC6HMc/26m5L9yWuVrvH6I/jb8DNdX9U+YT1g7xDkC78HLzmy53fc50gYdYOLl2/ZeL5TVreIOf9BU+Hf1pFCo3aj/K7CEu/7qQ03b1Dr4Ki5q25C+bUhZofXO8kt0KVsFrhpasAOfuEDlLyiGcKiUYDB2Ez6c9eiMBvoetILFs7d6AR0BdbMPqAgiMwPat5u0j/AU+9UHb28blQ1qKf4DNzyEXevFSZpXIMsfQbBPtkRbao19hUj3Vu3/hyHCdgEes7Eojy2oCG0PTYcGJ5GeMLJXz37XTD8cSVclvroU/ksyZ382igJ924Jqca8OAn/Esbh4J5/+muIQ9x3ruIyMr83i2+dc1AfYIoU2Vz/VQ2bYbpjm7HbrXD5XgAdqZs4NF17rTXzHmjM+qLN6Jamr6bsVgsjginYHiDksKpymTq/Hw65aPHhnH9QwJL3ekNUr5nxMpy/vvGSpmYQcwyor2cI3KejDQPbfwNLuUDR49FowLObI71BKWd3roBj/CUdAwATMgrQ3qu/Jckwgf8SXiXAbGlK0zOXdS4U2PaeWJcZHvKY=
+    secure: tQ9sh3Tm1VwDyiRbmnZOa+1yjPACQXMjFQK96MkDwoX7Bw5AyExnhEsnZTbtwCublSXO/6HMZClyIFhavzf7q4bmGNBlZSU4Wgt7A2qZ/HU6AY+mXFeTI7a0OSlOyIHE+W8c6Jc3RYajN5XTSlJRoKIXbeP7uvHDB9WSoGrw13ZfG8WFP2o9a8xuryKXc7KzKsdFbpni6zfTZq6FmOy0a0gmpFfxh2JFO/Oj1NzvDbSvhZ1m/HPpWf6JxyiwXGL7LFnjjCT3Lo8vqKX6ydk+kUTENo6yHKkMT6tNuEHgbVm3Cv7xlRnSSsRIxS8bpmgAx3mQ4Y/GgcYSvdB6nhEaF+CIlbiAFG2v9kD1pn/WS8LCR8UC4f8Oi2C/PQ/Wz+z6lPPyc8ptpepxZPVMQuy11Csmu8FhRHnqmgNk74kUpDqc3ABqRF7X3HSmAnsYrwEX6F/rJel8zblp8JKve+vjvDAZE7+B+WO7UGRcFDCuBCIqidbUnpXUbQfsb5xuI1XCzq/B43t+/vTVaTwF5j04RizHa3Ljo6bJJSRtW0iizKsUt7hHgd2mVPQGz0R619QVDnkS4yId+beU2zpMaFdjVeLE7gQTihLuWJkK9WddfpVoaR5l/fETf1SOn/D8WdoIYWFnBrtOj0+XxZQ6Odjx7SSjWxlGCBEut01ec6HTa14=
