@@ -1,5 +1,5 @@
-#API_DECIDE = 'https://egc-decide-moltres.herokuapp.com/'
-API_DECIDE = 'https://decide-por-si-acaso.herokuapp.com/'
+API_DECIDE = 'https://egc-decide-moltres.herokuapp.com/'
+#API_DECIDE = 'https://decide-por-si-acaso.herokuapp.com/'
 #LOCAL
 #API_DECIDE = 'http://localhost:8000/'
 
