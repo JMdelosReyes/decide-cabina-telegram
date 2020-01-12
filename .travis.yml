@@ -12,7 +12,7 @@ script:
 - cd ..
 #- coverage xml
 #- python-codacy-coverage -r coverage.xml
-- flake8 .
+#- flake8 .
 deploy:
   provider: heroku
   api_key:
