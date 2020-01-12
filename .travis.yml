@@ -4,6 +4,7 @@ python:
 install:
 - pip install -r requirements.txt
 - pip install codacy-coverage
+- pip install flake8
 script:
 - cd test
 - python -m unittest
@@ -11,6 +12,7 @@ script:
 - cd ..
 - coverage xml
 - python-codacy-coverage -r coverage.xml
+- flake8 .
 deploy:
   provider: heroku
   api_key:
